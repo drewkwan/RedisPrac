@@ -57,6 +57,7 @@ public class RedisConfig {
         RedisTemplate<String, User> template = new RedisTemplate<String, User>();
         template.setConnectionFactory(jedisFac);
         template.setKeySerializer(new StringRedisSerializer());
+        //When using jackson as a serailizer make sure your imports/your pom file has the dependencies
         Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<>(User.class);
         template.setValueSerializer(jackson2JsonRedisSerializer);
         template.setKeySerializer(new StringRedisSerializer());
